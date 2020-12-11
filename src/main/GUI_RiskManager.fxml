@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="1057.0" type="AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="67.0" layoutY="125.0" prefHeight="250.0" prefWidth="686.0">
+        <columns>
+          <TableColumn prefWidth="312.0" text="Navn" />
+          <TableColumn prefWidth="224.0" text="Dato" />
+            <TableColumn prefWidth="75.0" text="View" />
+            <TableColumn prefWidth="74.0" text="Edit" />
+        </columns>
+      </TableView>
+      <Separator layoutX="54.0" layoutY="50.0" orientation="VERTICAL" prefHeight="582.0" prefWidth="1.0" />
+      <Separator layoutY="50.0" prefHeight="0.0" prefWidth="1057.0" />
+      <Separator layoutX="129.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="53.0" prefWidth="6.0" />
+      <Avatar layoutX="14.0" layoutY="9.0">
+         <image>
+            <Image url="@../../../../Desktop/lelouch.jpg" />
+         </image>
+      </Avatar>
+      <Label layoutX="60.0" layoutY="18.0" text="User Name" />
+      <TextField fx:id="SearchBar" layoutX="67.0" layoutY="90.0" prefHeight="25.0" prefWidth="480.0" />
+      <Label layoutX="67.0" layoutY="73.0" text="Søgefelt" />
+   </children>
+</fx:root>
