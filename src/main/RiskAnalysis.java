@@ -29,6 +29,10 @@ public class RiskAnalysis {
         this.title = title;
     }
 
+    public ArrayList<Risk> getRiskArrayList() {
+        return riskArrayList;
+    }
+
     public void add(Risk risk) {
         riskArrayList.add(risk);
     }
