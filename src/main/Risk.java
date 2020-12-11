@@ -1,5 +1,7 @@
 package main;
 
+import java.util.Date;
+
 public class Risk {
     private String description;
 
@@ -59,10 +61,19 @@ public class Risk {
         this.counterMeasure = counterMeasure;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     private String probability;
     private String consequence;
     private int priority;
     private String revisedProbability;
     private String revisedConsequence;
     private String counterMeasure;
+    private Date date = new Date();
 }
