@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TableColumn?>
@@ -23,11 +22,6 @@
       <Separator layoutX="54.0" layoutY="50.0" orientation="VERTICAL" prefHeight="582.0" prefWidth="1.0" />
       <Separator layoutY="50.0" prefHeight="0.0" prefWidth="1057.0" />
       <Separator layoutX="129.0" layoutY="-1.0" orientation="VERTICAL" prefHeight="53.0" prefWidth="6.0" />
-      <Avatar layoutX="14.0" layoutY="9.0">
-         <image>
-            <Image url="@../../../../Desktop/lelouch.jpg" />
-         </image>
-      </Avatar>
       <Label layoutX="60.0" layoutY="18.0" text="User Name" />
       <TextField fx:id="SearchBar" layoutX="67.0" layoutY="90.0" prefHeight="25.0" prefWidth="480.0" />
       <Label layoutX="67.0" layoutY="73.0" text="Søgefelt" />
