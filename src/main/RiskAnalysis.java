@@ -1,6 +1,7 @@
 package main;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class RiskAnalysis {
     private int ID;
@@ -42,8 +43,16 @@ public class RiskAnalysis {
     public boolean isEmpty() {
         return riskArrayList.isEmpty();
     }
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     private int userID;
     private String title;
     private ArrayList<Risk> riskArrayList = new ArrayList<Risk>();
+    private Date date = new Date();
 }
