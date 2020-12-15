@@ -15,6 +15,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="632.0" prefWidth="1086.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
   <tabs>
@@ -37,8 +38,6 @@
                   <Separator layoutX="505.0" layoutY="61.0" orientation="VERTICAL" prefHeight="65.0" prefWidth="6.0" />
                   <Separator layoutX="621.0" layoutY="66.0" orientation="VERTICAL" prefHeight="56.0" prefWidth="3.0" />
                   <Button layoutX="522.0" layoutY="94.0" mnemonicParsing="false" text="Your Analysis" />
-                  <TextField layoutX="245.0" layoutY="16.0" promptText="Risiko Analyse" />
-                  <TextField layoutX="402.0" layoutY="16.0" promptText="Risiko Analyse 1" />
                   <Separator layoutX="234.0" layoutY="23.0" orientation="VERTICAL" prefHeight="12.0" prefWidth="5.0" />
                   <Separator layoutX="234.0" layoutY="11.0" orientation="VERTICAL" prefHeight="3.0" prefWidth="0.0" />
                   <Separator layoutX="234.0" layoutY="36.0" orientation="VERTICAL" prefHeight="8.0" prefWidth="0.0" />
@@ -107,12 +106,44 @@
                      </columns>
                   </TableView>
                   <Slider layoutX="1031.0" layoutY="363.0" orientation="VERTICAL" prefHeight="160.0" prefWidth="14.0" />
+                  <Button layoutX="255.0" layoutY="16.0" mnemonicParsing="false" text="Risiko Analyse" />
+                  <Button layoutX="373.0" layoutY="16.0" mnemonicParsing="false" text="Risiko Analyse 2" />
                </children></AnchorPane>
       </content>
     </Tab>
     <Tab text="Untitled Tab 2">
       <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Separator layoutX="75.0" layoutY="56.0" orientation="VERTICAL" prefHeight="582.0" prefWidth="1.0" />
+                  <Separator layoutX="3.0" layoutY="55.0" prefHeight="0.0" prefWidth="1057.0" />
+                  <Label fx:id="UserID1" layoutX="58.0" layoutY="20.0" text="User Name" />
+                  <Avatar fx:id="UserPic1" layoutX="14.0" layoutY="10.0" />
+                  <Separator layoutX="234.0" layoutY="36.0" orientation="VERTICAL" prefHeight="12.0" prefWidth="5.0" />
+                  <Separator layoutX="234.0" layoutY="23.0" orientation="VERTICAL" prefHeight="3.0" prefWidth="0.0" />
+                  <Separator layoutX="234.0" layoutY="11.0" orientation="VERTICAL" prefHeight="8.0" prefWidth="0.0" />
+                  <Button fx:id="Add1" layoutX="175.0" layoutY="16.0" mnemonicParsing="false" text="Add" />
+                  <Separator layoutX="143.0" orientation="VERTICAL" prefHeight="56.0" prefWidth="7.0" />
+                  <Label layoutX="194.0" layoutY="85.0" prefHeight="40.0" prefWidth="153.0" text="Ny analyse">
+                     <font>
+                        <Font name="System Bold" size="28.0" />
+                     </font>
+                  </Label>
+                  <Button layoutX="255.0" layoutY="16.0" mnemonicParsing="false" text="Risiko Analyse" />
+                  <Button layoutX="373.0" layoutY="16.0" mnemonicParsing="false" text="Risiko Analyse 2" />
+                  <Separator layoutX="162.0" layoutY="57.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" />
+                  <Separator layoutX="162.0" layoutY="116.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" />
+                  <Separator layoutX="162.0" layoutY="177.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" />
+                  <Separator layoutX="162.0" layoutY="236.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" />
+                  <Separator layoutX="162.0" layoutY="302.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" />
+                  <Separator layoutX="162.0" layoutY="369.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" />
+                  <Separator layoutX="162.0" layoutY="433.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" />
+                  <Separator layoutX="162.0" layoutY="492.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" />
+                  <Separator layoutX="162.0" layoutY="551.0" orientation="VERTICAL" prefHeight="61.0" prefWidth="4.0" />
+                  <Button layoutX="79.0" layoutY="73.0" mnemonicParsing="false" text="Tilføj Risiko" />
+                  <Button layoutX="91.0" layoutY="141.0" mnemonicParsing="false" text="Button" />
+                  <Button layoutX="91.0" layoutY="214.0" mnemonicParsing="false" text="Button" />
+               </children></AnchorPane>
       </content>
     </Tab>
   </tabs>
