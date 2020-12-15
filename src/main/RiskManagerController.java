@@ -108,7 +108,7 @@ public class RiskManagerController {
         // TODO
     }
     public void saveRiskAnalysis(RiskAnalysis rA) {
-        rA.setDate(Date);
+        rA.setDate(new Date());
         updateGUI(ChangeType.DASHBOARD);
         // TODO
     }
@@ -136,7 +136,8 @@ public class RiskManagerController {
 
     public void addRisk(RiskAnalysis rA) {
 
-        rA.riskArrayList.add(new Risk());
+        rA.getRiskArrayList().add(new Risk());
+        rA.getRiskArrayList().get(rA.getRiskArrayList().size()-1).open();
         updateGUI(ChangeType.RISKANALYSIS);
 
     }
@@ -144,14 +145,14 @@ public class RiskManagerController {
     public void deleteRisk(RiskAnalysis rA, Risk currentRisk) {
 
         riskUndo = currentRisk;
-        rA.riskArrayList.remove(currentRisk);
+        rA.getRiskArrayList().remove(currentRisk);
         updateGUI(ChangeType.RISKANALYSIS);
 
     }
 
     public void undoRisk(RiskAnalysis rA) {
 
-        rA.riskArrayList.add(riskUndo);
+        rA.getRiskArrayList().add(riskUndo);
         updateGUI(ChangeType.RISKANALYSIS);
 
     }
@@ -173,6 +174,9 @@ public class RiskManagerController {
         }
 
         // TODO
+    }
+    public void redoText(){
+        //TODO
     }
 
     public void redoText(KeyEvent event1, KeyEvent event2) {
