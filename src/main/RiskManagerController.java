@@ -59,7 +59,7 @@ public class RiskManagerController {
 
                 for (Risk currentRisk: rA.getRiskArrayList()) {
 
-                    currentRisk.close(); // TODO Der kommer til at være en close() og open() metode som åbner og lukker risk på GUI
+                    //currentRisk.close(); // TODO Der kommer til at være en close() og open() metode som åbner og lukker risk på GUI
 
                     // TODO Create in GUI the risks in a table formation
                 }
@@ -107,7 +107,7 @@ public class RiskManagerController {
         // TODO
     }
     public void saveRiskAnalysis(RiskAnalysis rA) {
-        rA.setDate(Date);
+        // rA.setDate(Date);
         updateGUI(ChangeType.DASHBOARD);
         // TODO
     }
@@ -135,7 +135,7 @@ public class RiskManagerController {
 
     public void addRisk(RiskAnalysis rA) {
 
-        rA.riskArrayList.add(new Risk());
+        // rA.riskArrayList.add(new Risk());
         updateGUI(ChangeType.RISKANALYSIS);
 
     }
@@ -143,14 +143,14 @@ public class RiskManagerController {
     public void deleteRisk(RiskAnalysis rA, Risk currentRisk) {
 
         riskUndo = currentRisk;
-        rA.riskArrayList.remove(currentRisk);
+        // rA.riskArrayList.remove(currentRisk);
         updateGUI(ChangeType.RISKANALYSIS);
 
     }
 
     public void undoRisk(RiskAnalysis rA) {
 
-        rA.riskArrayList.add(riskUndo);
+        // rA.riskArrayList.add(riskUndo);
         updateGUI(ChangeType.RISKANALYSIS);
 
     }

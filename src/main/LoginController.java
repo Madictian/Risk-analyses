@@ -28,7 +28,7 @@ public class LoginController implements Initializable {
         try {
             Connection conn = DatabaseHandler.getConnection();
             DatabaseHandler.createTables(conn);
-            DatabaseHandler.createUser(conn,1,"admin","admin1234");
+            // DatabaseHandler.createUser(conn,1,"admin","admin1234");
         } catch (Exception e) {
             e.printStackTrace();
         }
