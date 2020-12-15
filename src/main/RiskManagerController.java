@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class RiskManagerController {
-
     // Current open risk analysis and current targeted/opened risk
     private RiskAnalysis rA = null;
     private Risk currentRisk = null;
@@ -188,7 +187,4 @@ public class RiskManagerController {
         }
         // TODO
     }
-
-
-
 }
