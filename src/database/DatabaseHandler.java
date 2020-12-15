@@ -2,8 +2,22 @@ package database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class DatabaseHandler {
+    public static void createUser(Connection conn, int admin, String username, String password) throws SQLException {
+        // insert hashing algorithm here
+
+        PreparedStatement create = conn.prepareStatement(String.format("INSERT INTO users (admin, username, password) VALUES ('%s', '%s', '%s')", admin, username, password));
+        create.executeUpdate();
+    }
+
+    public static void createTables(Connection conn) throws SQLException {
+        PreparedStatement create = conn.prepareStatement("CREATE TABLE IF NOT EXISTS users(id int NOT NULL AUTO_INCREMENT, admin BOOLEAN, username varchar(255), password varchar(255), PRIMARY KEY(id))");
+        create.executeUpdate();
+    }
+
     public static Connection getConnection() {
         try {
             String driver = "com.mysql.cj.jdbc.Driver";
@@ -15,11 +29,11 @@ public class DatabaseHandler {
             String url = String.format("jdbc:mysql://%s:%s/%s", domain, port, databaseName);
             Class.forName(driver);
 
-            Connection conn = DriverManager.getConnection(url,username,password);
+            Connection conn = DriverManager.getConnection(url, username, password);
             System.out.printf("Connected to %s '%s'@'%s' on port %s\n", databaseName, username, domain, port);
             return conn;
-        } catch(Exception e) {
-            System.out.println(e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }

@@ -16,7 +16,7 @@ public class LoginController implements Initializable {
     @FXML
     private PasswordField passwordInputField;
 
-    public void login() throws Exception {
+    public void login() {
         String username = usernameInputField.getText();
         String password = passwordInputField.getText();
         System.out.println(username);
@@ -27,6 +27,8 @@ public class LoginController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         try {
             Connection conn = DatabaseHandler.getConnection();
+            DatabaseHandler.createTables(conn);
+            DatabaseHandler.createUser(conn,1,"admin","admin1234");
         } catch (Exception e) {
             e.printStackTrace();
         }
