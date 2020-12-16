@@ -22,8 +22,6 @@ public class DatabaseHandler {
             salt = result.getString("salt");
             hash = result.getString("hash");
             String confirmHash = PBKDF2Hash(password, salt);
-            System.out.println(hash);
-            System.out.println(confirmHash);
             if (hash.equals(confirmHash)) {
                 return new User(id, admin, username);
             } else {
