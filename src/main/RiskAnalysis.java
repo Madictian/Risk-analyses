@@ -21,23 +21,64 @@ public class RiskAnalysis {
 
     private int ID;
 
+
     @FXML
-    HBox riskAnalysisContainer;
+    TextField riskAnalysisTitle = new TextField("Ny risiko analyse");
     @FXML
-    TextField riskAnalysisTitle;
+    TextField riskAnalysisDate = new TextField("Idag");
     @FXML
-    TextField riskAnalysisDate;
+    Button viewButton = new Button("View");
     @FXML
-    Button viewButton;
+    Button editButton = new Button("Edit");
     @FXML
-    Button editButton;
+    HBox riskAnalysisContainer = new HBox(riskAnalysisTitle, riskAnalysisDate, viewButton, editButton);
+
+    public HBox getRiskAnalysisContainer() {
+        return riskAnalysisContainer;
+    }
+
+    public RiskAnalysis() {
+        risky();
+    }
+
+    public Button getEditButton() {
+        return editButton;
+    }
+
+    public void risky(){
+        riskAnalysisContainer = new HBox();
+        riskAnalysisContainer.setMinSize(656.0, 25.0);
+        riskAnalysisContainer.setMaxSize(656.0, 25.0);
+
+
+
+        editButton = new Button("Edit");
+        editButton.setPrefSize(89.0, 17.0);
+
+        viewButton = new Button("View");
+        viewButton.setPrefSize(89.0, 17.0);
+
+
+        riskAnalysisTitle = new TextField("Title");
+        riskAnalysisTitle.setPrefSize(296.0, 25.0);
+
+
+        riskAnalysisDate = new TextField("Idag");
+        riskAnalysisDate.setPrefSize(187.0, 25.0);
+
+
+        riskAnalysisContainer.getChildren().addAll(riskAnalysisTitle,riskAnalysisDate,editButton,viewButton);
+    }
+
+
     @FXML
-    VBox riskListContainter = new VBox(/*TODO find a way to input arraylist*/);
+    VBox riskListContainer = new VBox(/*TODO find a way to input arraylist*//*(getRiskArrayList())*/);
 
     public RiskAnalysis(int userID, String title, int ID) {
         this.userID = userID;
         this.title = title;
         this.ID = ID;
+        risky();
     }
 
     public int getID() {

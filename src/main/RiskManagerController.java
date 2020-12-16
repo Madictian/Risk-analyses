@@ -1,5 +1,6 @@
 package main;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.InputEvent;
@@ -10,8 +11,10 @@ import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class RiskManagerController {
+
     // Current open risk analysis and current targeted/opened risk
     private RiskAnalysis rA = null;
     private Risk currentRisk = null;
@@ -49,6 +52,8 @@ public class RiskManagerController {
     @FXML
     TextArea riskCountermeasure;
 
+    public ArrayList<RiskAnalysis> riskAnalysisArrayList = new ArrayList<>();
+
     // FXML methods
     @FXML
     public void updateChange(String currentText) {
@@ -62,7 +67,13 @@ public class RiskManagerController {
 
         switch (type) {
             case DASHBOARD -> {
-
+                ArrayList<Object> riskAnalysisObjects = new ArrayList<>();
+                for (int i = 0; i < riskAnalysisArrayList.size(); i++) {
+                    riskAnalysisObjects.add(riskAnalysisArrayList.get(i).getRiskAnalysisContainer());
+                }
+                List list = riskAnalysisObjects;
+                riskAnalysisList.getChildren().removeAll(list);
+                riskAnalysisList.getChildren().addAll(list);
             }
             case RISKANALYSIS -> {
 
@@ -100,15 +111,17 @@ public class RiskManagerController {
     }
 
     public void createRiskAnalysis() {
-        updateGUI(ChangeType.RISKANALYSIS);
         RiskAnalysis newRiskAnalysis = new RiskAnalysis(currentUserId, "", riskAnalysisArrayList.size());
         newRiskAnalysis.setDate(new Date());
         riskAnalysisArrayList.add(newRiskAnalysis);
-        // TODO
+        newRiskAnalysis.getEditButton().setOnAction(e -> editRiskAnalysis(newRiskAnalysis));
+        updateGUI(ChangeType.DASHBOARD);
     }
 
     @FXML
-    public void editRiskAnalaysis(RiskAnalysis rA) {
+    public void editRiskAnalysis(RiskAnalysis rA) {
+
+        // TODO Change tabs
 
         for (int i = 0; i < rA.getRiskArrayList().size(); i++) {
 
@@ -121,6 +134,7 @@ public class RiskManagerController {
             currentRisk.setCounterMeasure(riskCountermeasure.getText());
 
         }
+
         updateGUI(ChangeType.RISKANALYSIS);
 
         // TODO
@@ -164,7 +178,7 @@ public class RiskManagerController {
         // TODO
     }
 
-    public void addRisk(RiskAnalysis rA) {
+    public void addRisk() {
 
         rA.getRiskArrayList().add(new Risk());
         rA.getRiskArrayList().get(rA.getRiskArrayList().size()-1).open();
@@ -218,4 +232,5 @@ public class RiskManagerController {
         }
         // TODO
     }
+
 }

@@ -37,11 +37,6 @@ public class Risk {
     @FXML
     HBox riskContainer = new HBox(riskDescription, riskHBoxContainer);
 
-
-    public Risk(VBox riskListContainer) {
-
-    }
-
     public String getDescription() {
         return description;
     }
