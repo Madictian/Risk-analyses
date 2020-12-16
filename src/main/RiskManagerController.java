@@ -5,6 +5,8 @@ import javafx.scene.control.*;
 import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,6 +15,7 @@ public class RiskManagerController {
     // Current open risk analysis and current targeted/opened risk
     private RiskAnalysis rA = null;
     private Risk currentRisk = null;
+    private int currentUserId = 0;
 
     // Redo'n'Undo risk matters
     Risk riskUndo = new Risk();
@@ -26,6 +29,11 @@ public class RiskManagerController {
     }
 
     // FXML elements
+    @FXML
+    VBox riskAnalysisList;
+    String riskAnalysisTitle;
+    @FXML
+    VBox riskList;
     @FXML
     TextArea riskDescription;
     @FXML
@@ -48,6 +56,7 @@ public class RiskManagerController {
         textRedoables.add(currentText);
 
     }
+
 
     private void updateGUI(ChangeType type) {
 
@@ -82,19 +91,41 @@ public class RiskManagerController {
     }
 
     // Handles all risk analysis matters
-    public void createRiskAnalysis(String name) {
+    public void getRiskAnalysis() {
+        for (int i = 0; i < riskAnalysisArrayList.size(); i++) {
+            if (riskAnalysisTitle.equals(riskAnalysisArrayList.get(i).getTitle())) {
+                rA = riskAnalysisArrayList.get(i);
+            }
+        }
+    }
+
+    public void createRiskAnalysis() {
         updateGUI(ChangeType.RISKANALYSIS);
-        RiskAnalysis newRiskAnalysis = new RiskAnalysis();
+        RiskAnalysis newRiskAnalysis = new RiskAnalysis(currentUserId, "", riskAnalysisArrayList.size());
+        newRiskAnalysis.setDate(new Date());
+        riskAnalysisArrayList.add(newRiskAnalysis);
         // TODO
     }
+
+    @FXML
     public void editRiskAnalaysis(RiskAnalysis rA) {
+
         for (int i = 0; i < rA.getRiskArrayList().size(); i++) {
+
+            currentRisk.setDescription(riskDescription.getText());
+            currentRisk.setProbability(riskProbability.getText());
+            currentRisk.setConsequence(riskConsequence.getText());
+            currentRisk.setPriority(Integer.parseInt(riskPriority.getText()));
+            currentRisk.setRevisedProbability(riskRevisedProbability.getText());
+            currentRisk.setRevisedConsequence(riskRevisedConsequence.getText());
+            currentRisk.setCounterMeasure(riskCountermeasure.getText());
 
         }
         updateGUI(ChangeType.RISKANALYSIS);
 
         // TODO
     }
+
     public void deleteRiskAnalysis(RiskAnalysis rA) {
         if(!rA.getRiskArrayList().isEmpty()){
         //TODO Make a printout saying the Analysis is not empty, and asks if the user is sure of their decision

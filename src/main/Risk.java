@@ -4,11 +4,10 @@ import javafx.fxml.FXML;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-
-
-
+import javafx.scene.layout.VBox;
 
 public class Risk {
+
     private String description;
     private String probability;
     private String consequence;
@@ -18,21 +17,30 @@ public class Risk {
     private String counterMeasure;
 
     @FXML
-    HBox riskContainer;
+    TextArea riskDescription = new TextArea("Beskrivelse");
     @FXML
-    TextArea riskDescription;
+    TextField riskProbability = new TextField("1");
     @FXML
-    TextField riskProbability;
+    TextField riskConsequence = new TextField("10 kr.");
     @FXML
-    TextField riskConsequence;
+    TextField riskPriority = new TextField("10");
     @FXML
-    TextField riskPriority;
+    TextField riskRevisedProbability = new TextField("");
     @FXML
-    TextField riskRevisedProbability;
+    TextField riskRevisedConsequence = new TextField("");
     @FXML
-    TextField riskRevisedConsequence;
+    TextArea riskCounterMeasure = new TextArea("Imødegåelsesstrategi");
     @FXML
-    TextArea riskCounterMeasure;
+    HBox riskTextFieldsContainer = new HBox(riskProbability, riskConsequence, riskPriority, riskRevisedProbability, riskRevisedConsequence);
+    @FXML
+    VBox riskHBoxContainer = new VBox(riskTextFieldsContainer, riskCounterMeasure);
+    @FXML
+    HBox riskContainer = new HBox(riskDescription, riskHBoxContainer);
+
+
+    public Risk(VBox riskListContainer) {
+
+    }
 
     public String getDescription() {
         return description;
@@ -91,10 +99,11 @@ public class Risk {
     }
 
     public void open() {
-    // increase height of the Hbox
+
+        // increase height of the Hbox
         riskContainer.setPrefHeight(riskContainer.getHeight() * 3.5);
 
-    // Set textfields and areas to Editable
+        // Set textfields and areas to Editable
         riskDescription.setEditable(true);
         riskProbability.setEditable(true);
         riskConsequence.setEditable(true);
@@ -113,8 +122,10 @@ public class Risk {
     }
 
     public void close() {
-    // reset height to defaults
+
+        // reset height to defaults
         riskContainer.setPrefHeight(riskContainer.getHeight() / 3.5);
+
         // Set uneditable "correct?"
         riskDescription.setEditable(false);
         riskProbability.setEditable(false);

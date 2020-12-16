@@ -1,10 +1,44 @@
 package main;
 
+import javafx.collections.ObservableList;
+import javafx.collections.ObservableListBase;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
 import java.util.ArrayList;
 import java.util.Date;
 
 public class RiskAnalysis {
+
+    private int userID;
+    private String title;
+    private ArrayList<Risk> riskArrayList = new ArrayList<Risk>();
+    private Date date = new Date();
+
     private int ID;
+
+    @FXML
+    HBox riskAnalysisContainer;
+    @FXML
+    TextField riskAnalysisTitle;
+    @FXML
+    TextField riskAnalysisDate;
+    @FXML
+    Button viewButton;
+    @FXML
+    Button editButton;
+    @FXML
+    VBox riskListContainter = new VBox(/*TODO find a way to input arraylist*/);
+
+    public RiskAnalysis(int userID, String title, int ID) {
+        this.userID = userID;
+        this.title = title;
+        this.ID = ID;
+    }
 
     public int getID() {
         return ID;
@@ -51,8 +85,4 @@ public class RiskAnalysis {
         this.date = date;
     }
 
-    private int userID;
-    private String title;
-    private ArrayList<Risk> riskArrayList = new ArrayList<Risk>();
-    private Date date = new Date();
 }
