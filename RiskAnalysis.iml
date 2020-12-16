@@ -8,6 +8,8 @@
     <orderEntry type="jdk" jdkName="11" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="javafx-11.0.2" level="application" />
-    <orderEntry type="library" name="lib" level="application" />
+    <orderEntry type="library" name="JavaFXHelper-1.0.4" level="application" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="lib1" level="project" />
   </component>
 </module>
