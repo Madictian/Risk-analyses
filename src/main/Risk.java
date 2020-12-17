@@ -1,6 +1,9 @@
 package main;
 
 import javafx.fxml.FXML;
+import javafx.geometry.Orientation;
+import javafx.geometry.Pos;
+import javafx.scene.control.Separator;
 import javafx.scene.layout.HBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -180,25 +183,111 @@ public class Risk {
 
     }
 
-    public void structedRisk(){
-
+    public Risk() {
+        structureRisk();
+        this.open();
     }
 
-    //                        <HBox prefHeight="100.0" prefWidth="200.0">
-    //                           <children>
-    //                              <TextArea prefHeight="100.0" prefWidth="196.0" text="Ny risiko -- beskrivelse" />
-    //                              <Separator orientation="VERTICAL" prefHeight="200.0" />
-    //                              <VBox prefHeight="100.0" prefWidth="723.0">
-    //                                 <children>
-    //                                    <HBox prefHeight="24.0" prefWidth="722.0">
-    //                                       <children>
-    //                                          <TextField alignment="CENTER" prefHeight="25.0" prefWidth="86.0" text="50%" />
-    //                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
-    //                                          <TextField alignment="CENTER" prefHeight="25.0" prefWidth="174.0" text="1000kr" />
-    //                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
-    //                                          <TextField alignment="CENTER" prefHeight="25.0" prefWidth="74.0" text="500kr" />
-    //                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
-    //                                          <TextField />
-    //                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
-    //                                          <TextField prefHeight="25.0" prefWidth="218.0" />
+    public void structureRisk(){
+
+        riskContainer = new HBox();
+        riskHBoxContainer.setMinSize(723.0, 100);
+        riskHBoxContainer.setMaxSize(723.0, 100);
+
+        riskDescription = new TextArea("tilføj beskrivelse");
+        riskDescription.setMinSize(196.0,100);
+        riskDescription.setMaxSize(196.0, 100);
+
+        Separator separator1 = new Separator();
+        separator1.setOrientation(Orientation.VERTICAL);
+        separator1.setMinHeight(riskContainer.getHeight());
+
+        riskHBoxContainer = new VBox();
+        riskHBoxContainer.setMaxSize(723, 100);
+        riskHBoxContainer.setMinSize(723, 100);
+
+        riskTextFieldsContainer = new HBox();
+        riskTextFieldsContainer.setMaxSize(722, 24);
+        riskTextFieldsContainer.setMinSize(722, 24);
+
+
+        riskProbability = new TextField("1");
+        riskProbability.setMinSize(86, 25.);
+        riskProbability.setText("50%");
+        riskProbability.setAlignment(Pos.CENTER);
+
+
+        Separator separator3 = new Separator();
+        separator3.setMinHeight(100);
+        separator3.setOrientation(Orientation.VERTICAL);
+
+        riskConsequence = new TextField("10 kr.");
+        riskConsequence.setMinSize(174, 25.);
+        riskConsequence.setText("50%");
+        riskConsequence.setAlignment(Pos.CENTER);
+
+        Separator separator4 = new Separator();
+        separator4.setMinHeight(100);
+        separator4.setOrientation(Orientation.VERTICAL);
+
+
+        riskPriority = new TextField("10");
+        riskPriority.setMinSize(74, 25.);
+        riskPriority.setText("50%");
+        riskPriority.setAlignment(Pos.CENTER);
+
+        Separator separator5 = new Separator();
+        separator5.setMinHeight(100);
+        separator5.setOrientation(Orientation.VERTICAL);
+
+
+        riskRevisedProbability = new TextField("");
+        riskRevisedProbability.setMinSize(218, 25.);
+        riskRevisedProbability.setText("50%");
+        riskRevisedProbability.setAlignment(Pos.CENTER);
+
+        Separator separator6 = new Separator();
+        separator6.setMinHeight(100);
+        separator6.setOrientation(Orientation.VERTICAL);
+
+
+        riskRevisedConsequence = new TextField("");
+        riskRevisedConsequence.setMinSize(86, 25.);
+        riskRevisedConsequence.setText("50%");
+        riskRevisedConsequence.setAlignment(Pos.CENTER);
+
+        riskTextFieldsContainer.getChildren().addAll(
+                riskProbability, separator3,
+                riskConsequence, separator4,
+                riskPriority, separator5,
+                riskRevisedProbability, separator6,
+                riskRevisedConsequence);
+
+        riskCounterMeasure = new TextArea();
+        riskCounterMeasure.setMaxSize(715, 72);
+        riskCounterMeasure.setMinSize(715, 72);
+
+
+        Separator separator2 = new Separator();
+        separator2.setMinWidth(200);
+        riskHBoxContainer.getChildren().addAll(riskTextFieldsContainer,separator2, riskCounterMeasure);
+
+
+
+        riskContainer.getChildren().addAll(riskDescription, separator1, riskHBoxContainer);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
 }

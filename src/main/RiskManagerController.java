@@ -1,11 +1,11 @@
 package main;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 
+import javax.xml.crypto.dsig.spec.ExcC14NParameterSpec;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -60,7 +60,6 @@ public class RiskManagerController {
                 }
 
                 List list = riskAnalysisObjects;
-                //riskAnalysisList.getChildren().removeAll(list);
                 riskAnalysisList.getChildren().clear();
                 riskAnalysisList.getChildren().addAll(list);
 
@@ -77,7 +76,6 @@ public class RiskManagerController {
                 }
 
                 List list = riskObjects;
-                //riskList.getChildren().removeAll(list);
                 riskList.getChildren().clear();
                 riskList.getChildren().addAll(list);
 
@@ -163,10 +161,27 @@ public class RiskManagerController {
 
     // Handles all risk matters
 
-    public void editRisk() {
+    public void saveRisks() {
+
+        for (Risk currentR: currentRiskAnalysis.getRiskArrayList()) {
+            currentR.setDescription(currentR.getRiskDescription().getText());
+            currentR.setProbability(currentR.getRiskProbability().getText());
+            currentR.setConsequence(currentR.getRiskConsequence().getText());
+            currentR.setPriority(Integer.parseInt(currentR.getRiskPriority().getText()));
+            currentR.setRevisedProbability(currentR.getRiskRevisedProbability().getText());
+            currentR.setRevisedConsequence(currentR.getRiskRevisedConsequence().getText());
+            currentR.setCounterMeasure(currentR.getRiskCounterMeasure().getText());
+            currentR.close();
+        }
+
         updateGUI(ChangeType.RISK);
-        // TODO find out a way to set r to the current risk open in GUI
-        // TODO Call this method when exiting a risk, so when you dont want to edit the risk anymore
+
+    }
+
+    public void editRisk(Risk r) {
+
+        currentRisk = r;
+        currentRisk.open();
 
         // Call this when you exit the risk you were editing
         currentRisk.setDescription(currentRisk.getRiskDescription().getText());
@@ -177,16 +192,25 @@ public class RiskManagerController {
         currentRisk.setRevisedConsequence(currentRisk.getRiskRevisedConsequence().getText());
         currentRisk.setCounterMeasure(currentRisk.getRiskCounterMeasure().getText());
 
+        updateGUI(ChangeType.RISK);
 
-
-        // TODO
     }
 
     public void addRisk() {
 
-        currentRiskAnalysis.getRiskArrayList().add(new Risk());
+        Risk newRisk = new Risk();
+        newRisk.getRiskDescription().setOnMouseClicked(e -> editRisk(newRisk));
+        newRisk.getRiskProbability().setOnMouseClicked(e -> editRisk(newRisk));
+        newRisk.getRiskConsequence().setOnMouseClicked(e -> editRisk(newRisk));
+        newRisk.getRiskPriority().setOnMouseClicked(e -> editRisk(newRisk));
+        newRisk.getRiskRevisedProbability().setOnMouseClicked(e -> editRisk(newRisk));
+        newRisk.getRiskRevisedConsequence().setOnMouseClicked(e -> editRisk(newRisk));
+        newRisk.getRiskCounterMeasure().setOnMouseClicked(e -> editRisk(newRisk));
+        currentRiskAnalysis.getRiskArrayList().add(newRisk);
         currentRiskAnalysis.getRiskArrayList().get(currentRiskAnalysis.getRiskArrayList().size()-1).open();
         updateGUI(ChangeType.RISKANALYSIS);
+        currentRisk = newRisk;
+        newRisk.open();
 
     }
 
@@ -236,5 +260,21 @@ public class RiskManagerController {
         }
         // TODO
     }
+
+
+    public void readData() {
+
+        try {
+
+
+
+        } catch (Exception e) {
+
+        }
+
+
+    }
+
+
 
 }
