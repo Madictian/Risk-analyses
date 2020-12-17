@@ -10,7 +10,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("GUI_RiskManager.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("riskManagerView.fxml"));
         primaryStage.setTitle("Risk Analysis");
         primaryStage.setScene(new Scene(root, 1132, 650));
         primaryStage.show();

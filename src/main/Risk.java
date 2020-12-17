@@ -37,6 +37,38 @@ public class Risk {
     @FXML
     HBox riskContainer = new HBox(riskDescription, riskHBoxContainer);
 
+    public TextArea getRiskDescription() {
+        return riskDescription;
+    }
+
+    public TextField getRiskProbability() {
+        return riskProbability;
+    }
+
+    public TextField getRiskConsequence() {
+        return riskConsequence;
+    }
+
+    public TextField getRiskPriority() {
+        return riskPriority;
+    }
+
+    public TextField getRiskRevisedProbability() {
+        return riskRevisedProbability;
+    }
+
+    public TextField getRiskRevisedConsequence() {
+        return riskRevisedConsequence;
+    }
+
+    public TextArea getRiskCounterMeasure() {
+        return riskCounterMeasure;
+    }
+
+    public HBox getRiskContainer() {
+        return riskContainer;
+    }
+
     public String getDescription() {
         return description;
     }

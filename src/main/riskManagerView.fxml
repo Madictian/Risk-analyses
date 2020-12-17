@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1132.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1132.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.RiskManagerController">
   <tabs>
     <Tab text="Untitled Tab 1">
       <content>
@@ -49,13 +49,13 @@
                   <Separator layoutX="234.0" layoutY="23.0" orientation="VERTICAL" prefHeight="12.0" prefWidth="5.0" />
                   <Separator layoutX="234.0" layoutY="11.0" orientation="VERTICAL" prefHeight="3.0" prefWidth="0.0" />
                   <Separator layoutX="234.0" layoutY="36.0" orientation="VERTICAL" prefHeight="8.0" prefWidth="0.0" />
-                  <Button fx:id="Add" layoutX="175.0" layoutY="16.0" mnemonicParsing="false" text="Add" />
+                  <Button fx:id="Add" layoutX="175.0" layoutY="16.0" mnemonicParsing="false" onAction="#createRiskAnalysis" text="Add" />
                   <TableView layoutX="814.0" layoutY="93.0" prefHeight="218.0" prefWidth="233.0">
                      <columns>
                         <TableColumn prefWidth="232.0" text="C1" />
                      </columns>
                   </TableView>
-                  <VBox layoutX="95.0" layoutY="138.0" prefHeight="200.0" prefWidth="656.0">
+                  <VBox fx:id="riskAnalysisList" layoutX="95.0" layoutY="138.0" prefHeight="200.0" prefWidth="656.0">
                      <children>
                         <HBox fx:id="HBox" prefHeight="25.0" prefWidth="710.0">
                            <children>
@@ -148,7 +148,7 @@
                   <Separator layoutX="162.0" layoutY="433.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" />
                   <Separator layoutX="162.0" layoutY="492.0" orientation="VERTICAL" prefHeight="37.0" prefWidth="6.0" />
                   <Separator layoutX="162.0" layoutY="551.0" orientation="VERTICAL" prefHeight="61.0" prefWidth="4.0" />
-                  <Button layoutX="93.0" layoutY="73.0" mnemonicParsing="false" text="Tilføj &#10;Risiko" />
+                  <Button layoutX="93.0" layoutY="73.0" mnemonicParsing="false" onAction="#addRisk" text="Tilføj &#10;Risiko" />
                   <Button layoutX="91.0" layoutY="141.0" mnemonicParsing="false" text="Button" />
                   <Button layoutX="91.0" layoutY="192.0" mnemonicParsing="false" text="Button" />
                   <Label layoutX="187.0" layoutY="133.0" prefHeight="17.0" prefWidth="68.0" text="Beskrivelse" />
@@ -214,7 +214,7 @@
                               </HBox>
                            </children>
                         </VBox>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                        <VBox fx:id="riskList" prefHeight="200.0" prefWidth="100.0">
                            <children>
                               <HBox prefHeight="100.0" prefWidth="200.0">
                                  <children>
