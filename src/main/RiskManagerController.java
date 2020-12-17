@@ -50,26 +50,35 @@ public class RiskManagerController {
 
         switch (type) {
             case DASHBOARD -> {
+
                 ArrayList<Object> riskAnalysisObjects = new ArrayList<>();
+
                 for (int i = 0; i < riskAnalysisArrayList.size(); i++) {
+
                     riskAnalysisObjects.add(riskAnalysisArrayList.get(i).getRiskAnalysisContainer());
+
                 }
+
                 List list = riskAnalysisObjects;
-                riskAnalysisList.getChildren().removeAll(list);
+                //riskAnalysisList.getChildren().removeAll(list);
+                riskAnalysisList.getChildren().clear();
                 riskAnalysisList.getChildren().addAll(list);
+
             }
             case RISKANALYSIS -> {
 
                 ArrayList<Object> riskObjects = new ArrayList<>();
+
                 for (Risk currentRisk: currentRiskAnalysis.getRiskArrayList()) {
 
                     riskObjects.add(currentRisk.getRiskContainer());
-                    currentRisk.close(); // TODO Der kommer til at være en close() og open() metode som åbner og lukker risk på GUI
+                    currentRisk.close();
 
-                    // TODO Create in GUI the risks in a table formation
                 }
+
                 List list = riskObjects;
-                riskList.getChildren().removeAll(list);
+                //riskList.getChildren().removeAll(list);
+                riskList.getChildren().clear();
                 riskList.getChildren().addAll(list);
 
             }

@@ -179,4 +179,26 @@ public class Risk {
 
 
     }
+
+    public void structedRisk(){
+
+    }
+
+    //                        <HBox prefHeight="100.0" prefWidth="200.0">
+    //                           <children>
+    //                              <TextArea prefHeight="100.0" prefWidth="196.0" text="Ny risiko -- beskrivelse" />
+    //                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+    //                              <VBox prefHeight="100.0" prefWidth="723.0">
+    //                                 <children>
+    //                                    <HBox prefHeight="24.0" prefWidth="722.0">
+    //                                       <children>
+    //                                          <TextField alignment="CENTER" prefHeight="25.0" prefWidth="86.0" text="50%" />
+    //                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
+    //                                          <TextField alignment="CENTER" prefHeight="25.0" prefWidth="174.0" text="1000kr" />
+    //                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
+    //                                          <TextField alignment="CENTER" prefHeight="25.0" prefWidth="74.0" text="500kr" />
+    //                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
+    //                                          <TextField />
+    //                                          <Separator orientation="VERTICAL" prefHeight="200.0" />
+    //                                          <TextField prefHeight="25.0" prefWidth="218.0" />
 }
